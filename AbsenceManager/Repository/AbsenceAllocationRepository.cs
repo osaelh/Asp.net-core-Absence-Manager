@@ -38,6 +38,12 @@ namespace AbsenceManager.Repository
             return AbsenceAllocation;
         }
 
+        public bool IsExist(int id)
+        {
+            var exists = _db.AbsenceAllocations.Any(q => q.Id == id);
+            return exists;
+        }
+
         public bool Save()
         {
             var changes = _db.SaveChanges();

@@ -9,6 +9,7 @@ namespace AbsenceManager.Contract
     {
         ICollection<T> GetAll();
         T GetById(int id);
+        bool IsExist(int id);
         bool Create(T entity);
         bool Update(T entity);
         bool Delete(T entity);

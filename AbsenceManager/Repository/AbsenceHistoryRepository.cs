@@ -38,6 +38,12 @@ namespace AbsenceManager.Repository
             return AbsenceHistory;
         }
 
+        public bool IsExist(int id)
+        {
+            var exists = _db.AbsenceHistories.Any(q => q.Id == id);
+            return exists;
+        }
+
         public bool Save()
         {
             var Changes = _db.SaveChanges();
