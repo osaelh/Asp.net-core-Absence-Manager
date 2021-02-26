@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -22,16 +25,23 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Dropdown link
-                            </a>
-                            <div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item text-white" asp-controller="AbsenceType" asp-action="Index" >Absence Type</a>
-                                <a class="dropdown-item text-white" href="#">Another action</a>
-                                <a class="dropdown-item text-white" href="#">Something else here</a>
-                            </div>
-                        </li>
+                        @if (SignInManager.IsSignedIn(User))
+                        {
+                            if (User.IsInRole("Administrator"))
+                            {
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Dropdown link
+                                    </a>
+                                    <div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdownMenuLink">
+                                        <a class="dropdown-item text-white" asp-controller="AbsenceType" asp-action="Index">Absence Type</a>
+                                        <a class="dropdown-item text-white" href="#">Another action</a>
+                                        <a class="dropdown-item text-white" href="#">Something else here</a>
+                                    </div>
+                                </li>
+                            }
+                        }
+
                     </ul>
                     <partial name="_LoginPartial" />
                 </div>

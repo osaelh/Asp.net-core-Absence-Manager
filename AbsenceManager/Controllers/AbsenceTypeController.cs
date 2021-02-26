@@ -2,6 +2,7 @@
 using AbsenceManager.Data;
 using AbsenceManager.Models;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -11,6 +12,7 @@ using System.Threading.Tasks;
 
 namespace AbsenceManager.Controllers
 {
+    [Authorize(Roles ="Administrator")]
     public class AbsenceTypeController : Controller
     {
         private readonly IAbsenceTypeRepository _repo;
