@@ -10,9 +10,10 @@ namespace AbsenceManager.Models
     public class AbsenceAllocationViewModel
     {
         public int Id { get; set; }
-        [Required]
+
         public int NumberOfDays { get; set; }
         public DateTime DateCreated { get; set; }
+        public int Period { get; set; }
 
         public StudentViewModel Student { get; set; }
         public string StudentId { get; set; }
@@ -22,5 +23,11 @@ namespace AbsenceManager.Models
         public IEnumerable<SelectListItem> Students { get; set; }
         public IEnumerable<SelectListItem> AbsenceTypes { get; set; }
     }
+    public class CreateAbsenceAllocationViewModel
+    {
+        public int NumberUpdated { get; set; }
+        public List<DetailsAbsenceTypeViewModel> AbsenceTypes;
 
+
+    }
 }

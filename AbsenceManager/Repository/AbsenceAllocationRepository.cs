@@ -14,6 +14,15 @@ namespace AbsenceManager.Repository
         {
             _db = db;
         }
+
+        public bool CheckAllocation(int AbsenceTypeId, string StudentId)
+        {
+            var period = DateTime.Now.Year;
+            return GetAll()
+                .Where(q => q.StudentId == StudentId && q.AbsenceTypeId == AbsenceTypeId && q.Period == period)
+                .Any();
+        }
+
         public bool Create(Data.AbsenceAllocation entity)
         {
             _db.AbsenceAllocations.Add(entity);

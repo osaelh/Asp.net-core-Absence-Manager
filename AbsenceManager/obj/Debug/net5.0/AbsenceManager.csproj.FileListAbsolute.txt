@@ -289,3 +289,4 @@ C:\Users\Administrateur\Desktop\osa\Asp.net-core-Absence-Manager\AbsenceManager\
 C:\Users\Administrateur\Desktop\osa\Asp.net-core-Absence-Manager\AbsenceManager\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Error.cshtml.g.cs
 C:\Users\Administrateur\Desktop\osa\Asp.net-core-Absence-Manager\AbsenceManager\obj\Debug\net5.0\Razor\Areas\Identity\Pages\_ValidationScriptsPartial.cshtml.g.cs
 C:\Users\Administrateur\Desktop\osa\Asp.net-core-Absence-Manager\AbsenceManager\obj\Debug\net5.0\Razor\Areas\Identity\Pages\_ViewImports.cshtml.g.cs
+C:\Users\Administrateur\Desktop\osa\Asp.net-core-Absence-Manager\AbsenceManager\obj\Debug\net5.0\Razor\Views\AbsenceAllocation\Index.cshtml.g.cs

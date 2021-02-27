@@ -1,0 +1,33 @@
+﻿@model AbsenceManager.Models.CreateAbsenceAllocationViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Absence Type
+            </th>
+
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.AbsenceTypes) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+ 
+            <td>
+                @Html.ActionLink("Allocate to students", "SetAbsence", new {  id=item.Id  }) |
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

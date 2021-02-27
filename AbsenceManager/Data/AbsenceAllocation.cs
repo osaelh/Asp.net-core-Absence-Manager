@@ -19,5 +19,6 @@ namespace AbsenceManager.Data
         [ForeignKey("AbsenceTypeId")]
         public AbsenceType AbsenceType { get; set; }
         public int AbsenceTypeId { get; set; }
+        public int Period { get; set; }
     }
 }

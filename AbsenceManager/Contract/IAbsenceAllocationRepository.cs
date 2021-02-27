@@ -8,5 +8,6 @@ namespace AbsenceManager.Contract
 {
    public interface IAbsenceAllocationRepository:IRepositoryBase<AbsenceAllocation>
     {
+      bool CheckAllocation(int AbsenceTypeId, string StudentId);
     }
 }
