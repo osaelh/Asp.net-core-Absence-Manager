@@ -37,7 +37,7 @@ namespace AbsenceManager
                 {
                     Name = "Administrator"
                 };
-               var result = roleManager.CreateAsync(Role);
+               var result = roleManager.CreateAsync(Role).Result;
             }
             if (!roleManager.RoleExistsAsync("Student").Result)
             {
@@ -45,7 +45,7 @@ namespace AbsenceManager
                 {
                     Name = "Student"
                 };
-               var result = roleManager.CreateAsync(Role);
+               var result = roleManager.CreateAsync(Role).Result;
             }
         }
     }

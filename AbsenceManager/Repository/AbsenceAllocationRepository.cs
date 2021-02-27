@@ -1,5 +1,6 @@
 ﻿using AbsenceManager.Contract;
 using AbsenceManager.Data;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,15 +36,31 @@ namespace AbsenceManager.Repository
             return Save();
         }
 
+        public ICollection<AbsenceAllocation> GetAbsenceAllocationsByStudent(string id)
+        {
+            var period = DateTime.Now.Year;
+            return GetAll()
+                .Where(q => q.StudentId == id && q.Period==period)
+                .ToList();
+        }
+
         public ICollection<AbsenceAllocation> GetAll()
         {
-           var AbsenceAllocations  = _db.AbsenceAllocations.ToList();
+            var AbsenceAllocations = _db.AbsenceAllocations
+                .Include(q => q.AbsenceType)
+                .Include(q=>q.Student)
+                .ToList();
             return AbsenceAllocations;
         }
 
         public AbsenceAllocation GetById(int id)
         {
-            var AbsenceAllocation = _db.AbsenceAllocations.Find(id);
+            var AbsenceAllocation = _db.AbsenceAllocations
+                .Include(q => q.AbsenceType)
+                .Include(q => q.Student)
+                .FirstOrDefault(q=>q.Id==id);
+
+
             return AbsenceAllocation;
         }
 

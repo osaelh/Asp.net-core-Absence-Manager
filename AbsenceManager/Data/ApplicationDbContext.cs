@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using AbsenceManager.Models;
 
 namespace AbsenceManager.Data
 {
@@ -17,6 +18,9 @@ namespace AbsenceManager.Data
         public DbSet<AbsenceHistory> AbsenceHistories { get; set; }
         public DbSet<AbsenceType> AbsenceTypes { get; set; }
         public DbSet<AbsenceAllocation> AbsenceAllocations { get; set; }
+        public DbSet<AbsenceManager.Models.StudentViewModel> StudentViewModel { get; set; }
+        public DbSet<AbsenceManager.Models.DetailsAbsenceTypeViewModel> DetailsAbsenceTypeViewModel { get; set; }
+        public DbSet<AbsenceManager.Models.EditAbsenceAllocationViewModel> EditAbsenceAllocationViewModel { get; set; }
 
     }
 }

@@ -27,7 +27,19 @@ namespace AbsenceManager.Models
     {
         public int NumberUpdated { get; set; }
         public List<DetailsAbsenceTypeViewModel> AbsenceTypes;
-
-
+    } 
+    public class EditAbsenceAllocationViewModel
+    {
+        public int Id { get; set; }
+        public StudentViewModel Student { get; set; }
+        public string StudentId { get; set; }
+        public int NumberofDays { get; set; }
+        public DetailsAbsenceTypeViewModel AbsenceType { get; set; }
+    }
+    public class ViewAbsenceAllocationViewModel
+    {
+        public StudentViewModel Student { get; set; }
+        public string StudentId { get; set; }
+        public List<AbsenceAllocationViewModel> AbsenceAllocations { get; set; }
     }
 }

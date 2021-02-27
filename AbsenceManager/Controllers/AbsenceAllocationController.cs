@@ -66,10 +66,24 @@ namespace AbsenceManager.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        // GET: AbsenceAllocationController/Details/5
-        public ActionResult Details(int id)
+        public ActionResult StudentsList()
         {
-            return View();
+            var student = _userManager.GetUsersInRoleAsync("Student").Result;
+            var model = _mapper.Map<List<StudentViewModel>>(student);
+            return View(model);
+        }
+
+        // GET: AbsenceAllocationController/Details/5
+        public ActionResult Details(string id)
+        {
+            var student =_mapper.Map<StudentViewModel>(_userManager.FindByIdAsync(id).Result);
+            var allocations = _mapper.Map<List<AbsenceAllocationViewModel>>( _absenceAllocationRepository.GetAbsenceAllocationsByStudent(id));
+            var model = new ViewAbsenceAllocationViewModel
+            {
+                Student = student,
+                AbsenceAllocations =allocations
+            };
+            return View(model);
         }
 
         // GET: AbsenceAllocationController/Create
@@ -96,17 +110,31 @@ namespace AbsenceManager.Controllers
         // GET: AbsenceAllocationController/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var absenceAllocation = _absenceAllocationRepository.GetById(id);
+            var model = _mapper.Map<EditAbsenceAllocationViewModel>(absenceAllocation);
+            return View(model);
         }
 
         // POST: AbsenceAllocationController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(EditAbsenceAllocationViewModel model)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                if (!ModelState.IsValid)
+                {
+                    return View(model);
+                }
+                var record = _absenceAllocationRepository.GetById(model.Id);
+                record.NumberOfDays = model.NumberofDays; 
+                var isSuccess = _absenceAllocationRepository.Update(record);
+                if (!isSuccess)
+                {
+                    ModelState.AddModelError("", "Something went wrong while saving");
+                    return View(model);
+                }
+                return RedirectToAction(nameof(Details),new {id=model.StudentId });
             }
             catch
             {
