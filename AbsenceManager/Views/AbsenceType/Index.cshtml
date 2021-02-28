@@ -11,9 +11,6 @@
 <table id="tblData" class="table">
     <thead>
         <tr>
-@*            <th>
-                @Html.DisplayNameFor(model => model.Id)
-            </th>*@
             <th>
                 @Html.DisplayNameFor(model => model.Name)
             </th>
@@ -29,21 +26,18 @@
         @foreach (var item in Model)
         {
             <tr>
-@*                <td>
-                    @Html.DisplayFor(modelItem => item.Id)
-                </td>*@
                 <td>
                     @Html.DisplayFor(modelItem => item.Name)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.DateCreated)
-                </td>               
+                </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.DefaultDays)
                 </td>
                 <td>
                     @*@Html.ActionLink("Edit", "Edit", new { id = item.Id }) |*@
-                
+
                     <a asp-action="Details" class="btn badge-primary" asp-route-id="@item.Id"><i class="fa fa-info-circle" aria-hidden="true"></i>Details</a>
                     <a asp-action="Edit" class="btn badge-warning" asp-route-id="@item.Id">
                         <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
@@ -52,10 +46,10 @@
                     </a>
 
                     @* @Html.ActionLink("Delete", "Delete", new {  id= item.Id })*@
-                <a asp-action="Delete" class="btn badge-danger" asp-route-id="@item.Id" onclick="return confirm('are you sure want to delete this record')">
-                    <i class="fa fa-trash-o" aria-hidden="true"></i>
-                    Delete
-                </a>
+                    <a asp-action="Delete" class="btn badge-danger" asp-route-id="@item.Id" onclick="return confirm('are you sure want to delete this record')">
+                        <i class="fa fa-trash-o" aria-hidden="true"></i>
+                        Delete
+                    </a>
                 </td>
             </tr>
         }

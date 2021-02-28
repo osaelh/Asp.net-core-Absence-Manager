@@ -48,7 +48,7 @@ namespace AbsenceManager.Repository
         {
             var AbsenceAllocations = _db.AbsenceAllocations
                 .Include(q => q.AbsenceType)
-                .Include(q=>q.Student)
+                .Include(q => q.Student)
                 .ToList();
             return AbsenceAllocations;
         }

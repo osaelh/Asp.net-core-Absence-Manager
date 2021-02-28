@@ -7,7 +7,7 @@
 <h1>Students List</h1>
 
 
-<table class="table">
+<table id="tblData" class="table">
     <thead>
         <tr>
             <th>
@@ -23,24 +23,37 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
+        @foreach (var item in Model)
+        {
+            <tr>
 
 
-            <td>
-                @Html.DisplayFor(modelItem => item.FirstName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LastName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
 
-            <td>
-                @Html.ActionLink("Details", "Details", new {  id=item.Id }) |
-            </td>
-        </tr>
-}
+                <td>
+                    @*    @Html.ActionLink("Details", "Details", new { id = item.Id }) |*@
+                    <a asp-action="Details" class="btn badge-info" asp-route-id="@item.Id">
+                        <i class="fa fa-info" aria-hidden="true"></i>
+                        Details
+                    </a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
+@section Scripts
+{
+    <script>
+        $(document).ready(function () {
+            $('#tblData').DataTable();
+        });
+    </script>
+}
