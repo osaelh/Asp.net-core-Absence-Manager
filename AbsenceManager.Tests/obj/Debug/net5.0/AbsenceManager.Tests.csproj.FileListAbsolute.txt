@@ -222,3 +222,4 @@ C:\Users\Administrateur\Desktop\osa\Asp.net-core-Absence-Manager\AbsenceManager.
 C:\Users\Administrateur\Desktop\osa\Asp.net-core-Absence-Manager\AbsenceManager.Tests\obj\Debug\net5.0\ref\AbsenceManager.Tests.dll
 C:\Users\Administrateur\Desktop\osa\Asp.net-core-Absence-Manager\AbsenceManager.Tests\obj\Debug\net5.0\AbsenceManager.Tests.pdb
 C:\Users\Administrateur\Desktop\osa\Asp.net-core-Absence-Manager\AbsenceManager.Tests\obj\Debug\net5.0\AbsenceManager.Tests.genruntimeconfig.cache
+C:\Users\Administrateur\Desktop\osa\Asp.net-core-Absence-Manager\AbsenceManager.Tests\bin\Debug\net5.0\AbsenceManager.StaticWebAssets.xml

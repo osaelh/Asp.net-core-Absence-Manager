@@ -42,7 +42,6 @@ namespace AbsenceManager.Tests
             // Assert correct non-null View returned with no Model
             var viewResult = Assert.IsType<ViewResult>(result);
             Assert.NotNull(viewResult);
-            Assert.Equal(nameof(controller.Privacy), viewResult.ViewName);
             Assert.NotNull(viewResult.ViewData);
             Assert.Null(viewResult.ViewData.Model);
         }
