@@ -14,7 +14,7 @@ namespace AbsenceManager.Mapping
         {
             CreateMap<AbsenceType, DetailsAbsenceTypeViewModel>().ReverseMap();
             CreateMap<AbsenceType, CreateAbsenceTypeViewModel>().ReverseMap();
-            CreateMap<AbsenceHistory, AbsenceHistoryViewModel>().ReverseMap();
+            CreateMap<AbsenceRequest, AbsenceRequestViewModel>().ReverseMap();
             CreateMap<AbsenceAllocation, AbsenceAllocationViewModel>().ReverseMap();
             CreateMap<AbsenceAllocation, EditAbsenceAllocationViewModel>().ReverseMap();
             CreateMap<Student, StudentViewModel>().ReverseMap();

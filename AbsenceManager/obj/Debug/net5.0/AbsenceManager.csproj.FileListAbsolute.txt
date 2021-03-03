@@ -293,3 +293,4 @@ C:\Users\Administrateur\Desktop\osa\Asp.net-core-Absence-Manager\AbsenceManager\
 C:\Users\Administrateur\Desktop\osa\Asp.net-core-Absence-Manager\AbsenceManager\obj\Debug\net5.0\Razor\Views\AbsenceAllocation\Details.cshtml.g.cs
 C:\Users\Administrateur\Desktop\osa\Asp.net-core-Absence-Manager\AbsenceManager\obj\Debug\net5.0\Razor\Views\AbsenceType\Edit.cshtml.g.cs
 C:\Users\Administrateur\Desktop\osa\Asp.net-core-Absence-Manager\AbsenceManager\obj\Debug\net5.0\Razor\Views\AbsenceAllocation\Edit.cshtml.g.cs
+C:\Users\Administrateur\Desktop\osa\Asp.net-core-Absence-Manager\AbsenceManager\obj\Debug\net5.0\Razor\Views\AbsenceRequest\Index.cshtml.g.cs

@@ -35,7 +35,7 @@ namespace AbsenceManager
                     Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddScoped<IAbsenceTypeRepository, AbsenceTypeRepository>();
-            services.AddScoped<IAbsenceHistoryRepository, AbsenceHistoryRepository>();
+            services.AddScoped<IAbsenceRequestRepository, AbsenceRequestRepository>();
             services.AddScoped<IAbsenceAllocationRepository, AbsenceAllocationRepository>();
 
             services.AddAutoMapper(typeof(Maps));

@@ -1,0 +1,142 @@
+﻿@model AdminAbsenceRequestViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<div class="row">
+    <div class="col-3">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h2 class="card-title">@Model.TotalRequest</h2>
+                <h5 class="card-text">@Html.DisplayNameFor(model => model.TotalRequest)</h5>
+
+            </div>
+        </div>
+    </div>
+    <div class="col-3">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h2 class="card-title">@Model.ApprouvedRequest</h2>
+                <h5 class="card-text">@Html.DisplayNameFor(model => model.ApprouvedRequest)</h5>
+
+            </div>
+        </div>
+    </div>
+    <div class="col-3">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h2 class="card-title">@Model.PendingRequest</h2>
+                <h5 class="card-text">@Html.DisplayNameFor(model => model.PendingRequest)</h5>
+
+            </div>
+        </div>
+    </div>
+    <div class="col-3">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h2 class="card-title">@Model.RejectedRequest</h2>
+                <h5 class="card-text">@Html.DisplayNameFor(model => model.RejectedRequest)</h5>
+
+            </div>
+        </div>
+    </div>
+</div>
+<hr />
+<table id="tblData" class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AbsenceRequests[0].RequestingStudent.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AbsenceRequests[0].RequestingStudent.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AbsenceRequests[0].StartDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AbsenceRequests[0].EndDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AbsenceRequests[0].AbsenceType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AbsenceRequests[0].RequestDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AbsenceRequests[0].ActionDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AbsenceRequests[0].Approved)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AbsenceRequests[0].ApprovedBy)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.AbsenceRequests)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RequestingStudent.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RequestingStudent.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StartDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EndDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AbsenceType.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RequestDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ActionDate)
+                </td>
+                <td>
+                    @if (item.Approved == true)
+                    {
+                        <span class="badge badge-success">Approuved</span>
+                    }
+                    else if (item.Approved == false)
+                    {
+                        <span class="badge badge-danger">Denied</span>
+                    }
+                    else
+                    {
+                        <span class="badge badge-warning">Pending</span>
+                    }
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ApprovedBy.Id)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@section Scripts
+{
+    <script>
+        $(document).ready(function () {
+            $('#tblData').DataTable();
+        });
+    </script>
+}

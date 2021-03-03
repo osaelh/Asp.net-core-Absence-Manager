@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AbsenceManager.Contract
 {
-   public interface IAbsenceHistoryRepository : IRepositoryBase<AbsenceHistory>
+   public interface IAbsenceRequestRepository : IRepositoryBase<AbsenceRequest>
     {
     }
 }
