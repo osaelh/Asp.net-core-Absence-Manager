@@ -43,12 +43,12 @@ namespace AbsenceManager.Models
         [Required]
         [Display(Name ="Start Date")]
         [DataType(DataType.Date)]
-        public DateTime StartDate { get; set; }
+        public string StartDate { get; set; }
         [Required]
         [Display(Name ="End Date")]
         [DataType(DataType.Date)]
-        public DateTime EndDate { get; set; }
-        public IEnumerable<SelectListItem> AbsenceTypes { get; set; }
+        public string EndDate { get; set; }
+        public List<SelectListItem> AbsenceTypes { get; set; }
         [Display(Name = "Absence Type")]
         public int AbsenceTypeId { get; set; }
     }

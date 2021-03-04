@@ -13,7 +13,8 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="AbsenceTypeId" class="control-label col-md-6"></label>
-                @Html.DropDownListFor(q => q.AbsenceTypeId, new SelectList(Model.AbsenceTypes, "Value", "Text"), "Select Absence Type", new { @classe = "form-control col-6" })
+                @* @Html.DropDownListFor(q => q.AbsenceTypeId, new SelectList(Model.AbsenceTypes, "Value", "Text"), "Select Absence Type", new { @classe = "form-control col-6" })*@
+                <select asp-for="AbsenceTypeId" asp-items="Model.AbsenceTypes"></select>
                 <span asp-validation-for="AbsenceTypeId" class=""></span>
             </div>
 
