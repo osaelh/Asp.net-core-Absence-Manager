@@ -1,4 +1,5 @@
 ﻿using AbsenceManager.Data;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -36,5 +37,19 @@ namespace AbsenceManager.Models
         [Display(Name = "Rejected Requests")]
         public int RejectedRequest { get; set; }
         public List<AbsenceRequestViewModel> AbsenceRequests { get; set; }
+    }
+    public class CreateAbsenceRequestViewModel
+    {
+        [Required]
+        [Display(Name ="Start Date")]
+        [DataType(DataType.Date)]
+        public DateTime StartDate { get; set; }
+        [Required]
+        [Display(Name ="End Date")]
+        [DataType(DataType.Date)]
+        public DateTime EndDate { get; set; }
+        public IEnumerable<SelectListItem> AbsenceTypes { get; set; }
+        [Display(Name = "Absence Type")]
+        public int AbsenceTypeId { get; set; }
     }
 }

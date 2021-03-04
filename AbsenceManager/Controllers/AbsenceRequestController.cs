@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,12 +20,14 @@ namespace AbsenceManager.Controllers
         private readonly IAbsenceRequestRepository _absenceRequestRepo;
         private readonly IMapper _mapper;
         private readonly UserManager<IdentityUser> _userManager;
+        private readonly IAbsenceTypeRepository _absenceTypeRepository;
 
-        public AbsenceRequestController(IAbsenceRequestRepository absenceRequestRepo, IMapper mapper, UserManager<IdentityUser> userManager)
+        public AbsenceRequestController(IAbsenceRequestRepository absenceRequestRepo, IMapper mapper, UserManager<IdentityUser> userManager, IAbsenceTypeRepository absenceTypeRepository)
         {
             _absenceRequestRepo = absenceRequestRepo;
             _mapper = mapper;
             _userManager = userManager;
+            _absenceTypeRepository = absenceTypeRepository;
         }
 
         // GET: AbsenceRequestController
@@ -54,7 +57,17 @@ namespace AbsenceManager.Controllers
         // GET: AbsenceRequestController/Create
         public ActionResult Create()
         {
-            return View();
+            var absenceTypes = _absenceTypeRepository.GetAll().ToList();
+            var absenceTypesItems = absenceTypes.Select(x => new SelectListItem 
+            { 
+              Text=x.Name,
+              Value=x.Id.ToString()
+            });
+            var model = new CreateAbsenceRequestViewModel
+            {
+                AbsenceTypes = absenceTypesItems
+            };
+            return View(model);
         }
 
         // POST: AbsenceRequestController/Create

@@ -27,6 +27,9 @@
                     <ul class="navbar-nav flex-grow-1">
                         @if (SignInManager.IsSignedIn(User))
                         {
+                            <li class="nav-item">
+                                <a class="nav-link text-white" asp-controller="AbsenceRequest" asp-action="Create">Link</a>
+                            </li>
                             if (User.IsInRole("Administrator"))
                             {
                                 <li class="nav-item dropdown">
@@ -34,10 +37,10 @@
                                         Dropdown link
                                     </a>
                                     <div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdownMenuLink">
-                                        <a class="dropdown-item text-white" asp-controller="AbsenceType" asp-action="Index">Absence Type</a>
+                                        <a class="dropdown-item text-white" asp-controller="AbsenceType" asp-action="Index">Absence Types</a>
                                         <a class="dropdown-item text-white" asp-controller="AbsenceAllocation" asp-action="Index">Allocate Absence</a>
                                         <a class="dropdown-item text-white" asp-controller="AbsenceAllocation" asp-action="StudentsList">Students</a>
-                                        <a class="dropdown-item text-white" asp-controller="AbsenceRequest" asp-action="Index">Absence Request</a>
+                                        <a class="dropdown-item text-white" asp-controller="AbsenceRequest" asp-action="Index">Absence Requests</a>
                                     </div>
                                 </li>
                             }

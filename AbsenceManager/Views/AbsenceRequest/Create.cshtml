@@ -1,0 +1,48 @@
+﻿@model AbsenceManager.Models.CreateAbsenceRequestViewModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Apply for absence</h1>
+
+<hr />
+<div class="row">
+    <div class="col-8">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="AbsenceTypeId" class="control-label col-md-6"></label>
+                @Html.DropDownListFor(q => q.AbsenceTypeId, new SelectList(Model.AbsenceTypes, "Value", "Text"), "Select Absence Type", new { @classe = "form-control col-6" })
+                <span asp-validation-for="AbsenceTypeId" class=""></span>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="StartDate" class="control-label"></label>
+                        <input asp-for="StartDate" class="form-control" />
+                        <span asp-validation-for="StartDate" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="EndDate" class="control-label"></label>
+                        <input asp-for="EndDate" class="form-control" />
+                        <span asp-validation-for="EndDate" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary btn-block" />
+            </div>
+        </form>
+    </div>
+</div>
+ 
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

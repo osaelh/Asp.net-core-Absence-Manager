@@ -4,7 +4,7 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Absence Requests</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -13,8 +13,8 @@
     <div class="col-3">
         <div class="card" style="width: 18rem;">
             <div class="card-body">
-                <h2 class="card-title">@Model.TotalRequest</h2>
-                <h5 class="card-text">@Html.DisplayNameFor(model => model.TotalRequest)</h5>
+                <h2 class="card-title text-info">@Model.TotalRequest</h2>
+                <h5 class="card-text text-info">@Html.DisplayNameFor(model => model.TotalRequest)</h5>
 
             </div>
         </div>
@@ -22,8 +22,8 @@
     <div class="col-3">
         <div class="card" style="width: 18rem;">
             <div class="card-body">
-                <h2 class="card-title">@Model.ApprouvedRequest</h2>
-                <h5 class="card-text">@Html.DisplayNameFor(model => model.ApprouvedRequest)</h5>
+                <h2 class="card-title text-success">@Model.ApprouvedRequest</h2>
+                <h5 class="card-text text-success">@Html.DisplayNameFor(model => model.ApprouvedRequest)</h5>
 
             </div>
         </div>
@@ -31,8 +31,8 @@
     <div class="col-3">
         <div class="card" style="width: 18rem;">
             <div class="card-body">
-                <h2 class="card-title">@Model.PendingRequest</h2>
-                <h5 class="card-text">@Html.DisplayNameFor(model => model.PendingRequest)</h5>
+                <h2 class="card-title text-warning">@Model.PendingRequest</h2>
+                <h5 class="card-text text-warning">@Html.DisplayNameFor(model => model.PendingRequest)</h5>
 
             </div>
         </div>
@@ -40,8 +40,8 @@
     <div class="col-3">
         <div class="card" style="width: 18rem;">
             <div class="card-body">
-                <h2 class="card-title">@Model.RejectedRequest</h2>
-                <h5 class="card-text">@Html.DisplayNameFor(model => model.RejectedRequest)</h5>
+                <h2 class="card-title text-danger">@Model.RejectedRequest</h2>
+                <h5 class="card-text text-danger">@Html.DisplayNameFor(model => model.RejectedRequest)</h5>
 
             </div>
         </div>
@@ -49,7 +49,7 @@
 </div>
 <hr />
 <table id="tblData" class="table">
-    <thead>
+    <thead class="table-primary" >
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.AbsenceRequests[0].RequestingStudent.FirstName)
