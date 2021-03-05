@@ -18,7 +18,6 @@ namespace AbsenceManager.Data
         public DbSet<AbsenceRequest> AbsenceRequests { get; set; }
         public DbSet<AbsenceType> AbsenceTypes { get; set; }
         public DbSet<AbsenceAllocation> AbsenceAllocations { get; set; }
-        public DbSet<AbsenceManager.Models.AbsenceRequestViewModel> AbsenceRequestViewModel { get; set; }
 
     }
 }
