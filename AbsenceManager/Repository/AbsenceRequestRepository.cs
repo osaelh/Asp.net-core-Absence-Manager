@@ -38,7 +38,11 @@ namespace AbsenceManager.Repository
 
         public AbsenceRequest GetById(int id)
         {
-            var AbsenceHistory = _db.AbsenceRequests.Find(id);
+            var AbsenceHistory = _db.AbsenceRequests
+                .Include(x=>x.RequestingStudent)
+                .Include(x=>x.AbsenceType)
+                .FirstOrDefault(x=>x.Id==id)
+                ;
             return AbsenceHistory;
         }
 

@@ -54,9 +54,55 @@ namespace AbsenceManager.Controllers
         // GET: AbsenceRequestController/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var AbsenceRequest = _absenceRequestRepo.GetById(id);
+            var model = _mapper.Map<AbsenceRequestViewModel>(AbsenceRequest);
+            return View(model);
         }
 
+        public ActionResult ApprouveRequest(int id)
+        {
+            try
+            {
+                var user = _userManager.GetUserAsync(User).Result;
+                var AbsenceRequest = _absenceRequestRepo.GetById(id);
+                var allocation = _absenceAllocationRepository.GetAbsenceAllocationsByStudent(AbsenceRequest.RequestingStudentId).FirstOrDefault(x=>x.AbsenceTypeId==id);
+
+                int daysRequested = (int)(AbsenceRequest.EndDate - AbsenceRequest.StartDate).TotalDays;
+                allocation.NumberOfDays -= daysRequested;
+
+                AbsenceRequest.Approved = true;
+                AbsenceRequest.ApprovedById = user.Id;
+                AbsenceRequest.ActionDate = DateTime.Now;
+                _absenceRequestRepo.Update(AbsenceRequest);
+                _absenceAllocationRepository.Update(allocation);
+                return    RedirectToAction("Index");
+              
+            }
+            catch (Exception ex)
+            {
+
+               return  RedirectToAction("Index", "Home");
+            }
+        }
+        public ActionResult RejectRequest(int id)
+        {
+            try
+            {
+                var user = _userManager.GetUserAsync(User).Result;
+                var AbsenceRequest = _absenceRequestRepo.GetById(id);
+                AbsenceRequest.Approved = false;
+                AbsenceRequest.ApprovedById = user.Id;
+                AbsenceRequest.ActionDate = DateTime.Now;
+                _absenceRequestRepo.Update(AbsenceRequest);
+                return RedirectToAction("Index", "Home");
+
+            }
+            catch (Exception ex)
+            {
+
+                return RedirectToAction("Index", "Home");
+            }
+        }
         // GET: AbsenceRequestController/Create
         public ActionResult Create()
         {
