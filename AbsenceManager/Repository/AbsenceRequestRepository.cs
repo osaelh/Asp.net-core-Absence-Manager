@@ -32,6 +32,7 @@ namespace AbsenceManager.Repository
             var AbsenceHistories = _db.AbsenceRequests
                 .Include(x=>x.RequestingStudent)
                 .Include(x=>x.AbsenceType)
+                .Include(x=>x.ApprovedBy)
                 .ToList();
             return AbsenceHistories;
         }
@@ -41,6 +42,7 @@ namespace AbsenceManager.Repository
             var AbsenceHistory = _db.AbsenceRequests
                 .Include(x=>x.RequestingStudent)
                 .Include(x=>x.AbsenceType)
+                .Include(x=>x.ApprovedBy)
                 .FirstOrDefault(x=>x.Id==id)
                 ;
             return AbsenceHistory;

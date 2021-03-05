@@ -6,9 +6,6 @@
 
 <h1>Absence Requests</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
 <div class="row">
     <div class="col-3">
         <div class="card" style="width: 18rem;">
@@ -48,8 +45,8 @@
     </div>
 </div>
 <hr />
-<table id="tblData" class="table">
-    <thead class="table-primary" >
+<table  class="table table-dark table-hover">
+    <thead>
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.AbsenceRequests[0].RequestingStudent.FirstName)
@@ -121,7 +118,7 @@
                     }
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.ApprovedBy.Id)
+                    @Html.DisplayFor(modelItem => item.ApprovedBy.UserName)
                 </td>
                 <td>
              
@@ -132,11 +129,11 @@
         }
     </tbody>
 </table>
-@section Scripts
+@*@section Scripts
 {
     <script>
         $(document).ready(function () {
             $('#tblData').DataTable();
         });
     </script>
-}
+}*@

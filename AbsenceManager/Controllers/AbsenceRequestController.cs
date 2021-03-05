@@ -65,7 +65,7 @@ namespace AbsenceManager.Controllers
             {
                 var user = _userManager.GetUserAsync(User).Result;
                 var AbsenceRequest = _absenceRequestRepo.GetById(id);
-                var allocation = _absenceAllocationRepository.GetAbsenceAllocationsByStudent(AbsenceRequest.RequestingStudentId).FirstOrDefault(x=>x.AbsenceTypeId==id);
+                var allocation = _absenceAllocationRepository.GetAbsenceAllocationsByStudent(AbsenceRequest.RequestingStudentId).FirstOrDefault(x=>x.AbsenceTypeId==AbsenceRequest.AbsenceTypeId);
 
                 int daysRequested = (int)(AbsenceRequest.EndDate - AbsenceRequest.StartDate).TotalDays;
                 allocation.NumberOfDays -= daysRequested;
@@ -81,7 +81,7 @@ namespace AbsenceManager.Controllers
             catch (Exception ex)
             {
 
-               return  RedirectToAction("Index", "Home");
+               return  RedirectToAction("Index");
             }
         }
         public ActionResult RejectRequest(int id)
@@ -94,13 +94,13 @@ namespace AbsenceManager.Controllers
                 AbsenceRequest.ApprovedById = user.Id;
                 AbsenceRequest.ActionDate = DateTime.Now;
                 _absenceRequestRepo.Update(AbsenceRequest);
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index");
 
             }
             catch (Exception ex)
             {
 
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index");
             }
         }
         // GET: AbsenceRequestController/Create

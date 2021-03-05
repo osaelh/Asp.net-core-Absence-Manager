@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Identity;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -23,7 +24,7 @@ namespace AbsenceManager.Data
         public DateTime ActionDate { get; set; }
         public bool? Approved { get; set; }
         [ForeignKey("ApprovedById")]
-        public Student ApprovedBy { get; set; }
+        public IdentityUser ApprovedBy { get; set; }
         public string ApprovedById { get;set; }
     }
 }

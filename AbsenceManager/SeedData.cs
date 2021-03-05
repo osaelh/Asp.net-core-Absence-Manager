@@ -20,7 +20,8 @@ namespace AbsenceManager
                 var User = new IdentityUser
                 {
                     UserName = "Admin@LocalHost.com",
-                    Email = "Admin@localhost.com"
+                    Email = "Admin@localhost.com",
+                    
                 };
                var result =  userManager.CreateAsync(User, "Oussama@123").Result;
                 if (result.Succeeded)
