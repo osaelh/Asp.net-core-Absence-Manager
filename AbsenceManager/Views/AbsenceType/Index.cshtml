@@ -4,7 +4,7 @@
     ViewData["Title"] = "Index";
 }
 
-
+<h1>Absence Types</h1>
 <p>
     <a asp-action="Create" class="btn badge-success"><i class="fa fa-plus" aria-hidden="true"></i>Create New</a>
 </p>
@@ -39,15 +39,11 @@
                     @*@Html.ActionLink("Edit", "Edit", new { id = item.Id }) |*@
 
                     <a asp-action="Details" class="btn badge-primary" asp-route-id="@item.Id"><i class="fa fa-info-circle" aria-hidden="true"></i>Details</a>
-                    <a asp-action="Edit" class="btn badge-warning" asp-route-id="@item.Id">
-                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-
-                        Edit
-                    </a>
+                    <a asp-action="Edit" class="btn badge-warning" asp-route-id="@item.Id"> <i class="fas fa-edit"></i>Edit</a>
 
                     @* @Html.ActionLink("Delete", "Delete", new {  id= item.Id })*@
                     <a asp-action="Delete" class="btn badge-danger" asp-route-id="@item.Id" onclick="return confirm('are you sure want to delete this record')">
-                        <i class="fa fa-trash-o" aria-hidden="true"></i>
+                        <i class="fas fa-trash-alt"></i>
                         Delete
                     </a>
                 </td>
