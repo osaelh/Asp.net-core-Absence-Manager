@@ -5,150 +5,162 @@
 }
 
 <h1>Absence Requests</h1>
+<div class="card-body">
+    
+        <div class="row"><div class="col-sm-12 col-md-6"></div><div class="col-sm-12 col-md-6"></div></div><div class="row">
+            <div class="col-sm-12">
+                <div class="row">
+                    <div class="col-3">
+                        <div class="info-box bg-info">
+                            <span class="info-box-icon"><i class="fas fa-list"></i></span>
 
-<div class="row">
-    <div class="col-3">
-        <div class="info-box bg-info">
-            <span class="info-box-icon"><i class="fas fa-list"></i></span>
+                            <div class="info-box-content">
+                                <span class="info-box-text">@Model.TotalRequest</span>
+                                <span class="info-box-number">@Html.DisplayNameFor(model => model.TotalRequest)</span>
 
-            <div class="info-box-content">
-                <span class="info-box-text">@Model.TotalRequest</span>
-                <span class="info-box-number">@Html.DisplayNameFor(model => model.TotalRequest)</span>
+                            </div>
+                            <!-- /.info-box-content -->
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="info-box bg-success">
+                            <span class="info-box-icon"><i class="fas fa-check-circle"></i></span>
 
-            </div>
-            <!-- /.info-box-content -->
-        </div>
-    </div>
-    <div class="col-3">
-        <div class="info-box bg-success">
-            <span class="info-box-icon"><i class="fas fa-check-circle"></i></span>
+                            <div class="info-box-content">
+                                <span class="info-box-text">@Model.ApprouvedRequest</span>
+                                <span class="info-box-number">@Html.DisplayNameFor(model => model.ApprouvedRequest)</span>
 
-            <div class="info-box-content">
-                <span class="info-box-text">@Model.ApprouvedRequest</span>
-                <span class="info-box-number">@Html.DisplayNameFor(model => model.ApprouvedRequest)</span>
+                            </div>
+                            <!-- /.info-box-content -->
+                        </div>
+                    </div>
+                    <div class="col-3">
 
-            </div>
-            <!-- /.info-box-content -->
-        </div>
-    </div>
-    <div class="col-3">
-     
-            <div class="info-box bg-warning">
-                <span class="info-box-icon"><i class="fab fa-buffer"></i></span>
+                        <div class="info-box bg-warning">
+                            <span class="info-box-icon"><i class="fab fa-buffer"></i></span>
 
-                <div class="info-box-content">
-                    <span class="info-box-text">@Model.PendingRequest</span>
-                    <span class="info-box-number">@Html.DisplayNameFor(model => model.PendingRequest)</span>
+                            <div class="info-box-content">
+                                <span class="info-box-text">@Model.PendingRequest</span>
+                                <span class="info-box-number">@Html.DisplayNameFor(model => model.PendingRequest)</span>
 
+                            </div>
+                            <!-- /.info-box-content -->
+                        </div>
+                    </div>
+
+                    <div class="col-3">
+
+                        <div class="info-box bg-danger">
+                            <span class="info-box-icon"><i class="fas fa-times"></i></span>
+
+                            <div class="info-box-content">
+                                <span class="info-box-text">@Model.RejectedRequest</span>
+                                <span class="info-box-number">@Html.DisplayNameFor(model => model.RejectedRequest)</span>
+
+                            </div>
+                            <!-- /.info-box-content -->
+                        </div>
+                    </div>
                 </div>
-                <!-- /.info-box-content -->
             </div>
         </div>
- 
-    <div class="col-3">
-       
-        <div class="info-box bg-danger">
-            <span class="info-box-icon"><i class="fas fa-times"></i></span>
+    </div>
+<hr />
+<div class="card-body">
+    <div id="example2_wrapper" class="dataTables_wrapper dt-bootstrap4 table-dark table-hover">
+        <div class="row"><div class="col-sm-12 col-md-6"></div><div class="col-sm-12 col-md-6"></div></div><div class="row">
+            <div class="col-sm-12">
+                <table id="example2" class="table table-bordered table-hover dataTable dtr-inline" role="grid" aria-describedby="example2_info">
+                    <thead>
+                        <tr role="row">
+                            <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">
+                                @Html.DisplayNameFor(model => model.AbsenceRequests[0].RequestingStudent.FirstName)
+                            </th>
+                            <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">
+                                @Html.DisplayNameFor(model => model.AbsenceRequests[0].RequestingStudent.LastName)
+                            </th>
+                            <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">
+                                @Html.DisplayNameFor(model => model.AbsenceRequests[0].StartDate)
+                            </th>
+                            <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">
+                                @Html.DisplayNameFor(model => model.AbsenceRequests[0].EndDate)
+                            </th>
+                            <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">
+                                @Html.DisplayNameFor(model => model.AbsenceRequests[0].AbsenceType)
+                            </th>
+                            <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">
+                                @Html.DisplayNameFor(model => model.AbsenceRequests[0].RequestDate)
+                            </th>
+                            <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">
+                                @Html.DisplayNameFor(model => model.AbsenceRequests[0].AbsenceType)
+                            </th>
+                            <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">
+                                @Html.DisplayNameFor(model => model.AbsenceRequests[0].ActionDate)
+                            </th>
+                            <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">
+                                @Html.DisplayNameFor(model => model.AbsenceRequests[0].Approved)
+                            </th>
+                            <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">
+                                @Html.DisplayNameFor(model => model.AbsenceRequests[0].ApprovedBy)
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.AbsenceRequests)
+                        {
+                            <tr role="row" class="odd">
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.RequestingStudent.FirstName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.RequestingStudent.LastName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.StartDate)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.EndDate)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.AbsenceType.Name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.RequestDate)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ActionDate)
+                                </td>
+                                <td>
+                                    @if (item.Approved == true)
+                                    {
+                                        <span class="badge badge-success">Approuved</span>
+                                    }
+                                    else if (item.Approved == false)
+                                    {
+                                        <span class="badge badge-danger">Denied</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge badge-warning">Pending</span>
+                                    }
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ApprovedBy.UserName)
+                                </td>
+                                <td>
 
-            <div class="info-box-content">
-                <span class="info-box-text">@Model.RejectedRequest</span>
-                <span class="info-box-number">@Html.DisplayNameFor(model => model.RejectedRequest)</span>
+                                    <a asp-action="Details" asp-route-id="@item.Id" class="btn-outline-primary"><i class="fa fa-file"></i>Review</a>
 
+                                </td>
+                            </tr>
+
+                        }
+                    </tbody>
+                    @*                   <tfoot>
+                            <tr><th rowspan="1" colspan="1">Rendering engine</th><th rowspan="1" colspan="1">Browser</th><th rowspan="1" colspan="1">Platform(s)</th><th rowspan="1" colspan="1">Engine version</th><th rowspan="1" colspan="1">CSS grade</th></tr>
+                        </tfoot>*@
+                </table>
             </div>
-            <!-- /.info-box-content -->
-        </div>
+        </div><div class="row"><div class="col-sm-12 col-md-5"><div class="dataTables_info" id="example2_info" role="status" aria-live="polite">Showing 1 to 10 of 57 entries</div></div><div class="col-sm-12 col-md-7"><div class="dataTables_paginate paging_simple_numbers" id="example2_paginate"><ul class="pagination"><li class="paginate_button page-item previous disabled" id="example2_previous"><a href="#" aria-controls="example2" data-dt-idx="0" tabindex="0" class="page-link">Previous</a></li><li class="paginate_button page-item active"><a href="#" aria-controls="example2" data-dt-idx="1" tabindex="0" class="page-link">1</a></li><li class="paginate_button page-item "><a href="#" aria-controls="example2" data-dt-idx="2" tabindex="0" class="page-link">2</a></li><li class="paginate_button page-item "><a href="#" aria-controls="example2" data-dt-idx="3" tabindex="0" class="page-link">3</a></li><li class="paginate_button page-item "><a href="#" aria-controls="example2" data-dt-idx="4" tabindex="0" class="page-link">4</a></li><li class="paginate_button page-item "><a href="#" aria-controls="example2" data-dt-idx="5" tabindex="0" class="page-link">5</a></li><li class="paginate_button page-item "><a href="#" aria-controls="example2" data-dt-idx="6" tabindex="0" class="page-link">6</a></li><li class="paginate_button page-item next" id="example2_next"><a href="#" aria-controls="example2" data-dt-idx="7" tabindex="0" class="page-link">Next</a></li></ul></div></div></div>
     </div>
 </div>
-<hr />
-<table  class="table table-dark table-hover">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.AbsenceRequests[0].RequestingStudent.FirstName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AbsenceRequests[0].RequestingStudent.LastName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AbsenceRequests[0].StartDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AbsenceRequests[0].EndDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AbsenceRequests[0].AbsenceType)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AbsenceRequests[0].RequestDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AbsenceRequests[0].ActionDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AbsenceRequests[0].Approved)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AbsenceRequests[0].ApprovedBy)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model.AbsenceRequests)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.RequestingStudent.FirstName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.RequestingStudent.LastName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.StartDate)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.EndDate)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.AbsenceType.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.RequestDate)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ActionDate)
-                </td>
-                <td>
-                    @if (item.Approved == true)
-                    {
-                        <span class="badge badge-success">Approuved</span>
-                    }
-                    else if (item.Approved == false)
-                    {
-                        <span class="badge badge-danger">Denied</span>
-                    }
-                    else
-                    {
-                        <span class="badge badge-warning">Pending</span>
-                    }
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ApprovedBy.UserName)
-                </td>
-                <td>
-             
-                    <a asp-action="Details" asp-route-id="@item.Id" class="btn-outline-primary"><i class="fa fa-file"></i>Review</a> 
-                   
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
-@*@section Scripts
-{
-    <script>
-        $(document).ready(function () {
-            $('#tblData').DataTable();
-        });
-    </script>
-}*@
